@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class CopController : MonoBehaviour
 {
     static float SPEED_FACTOR_MIN = 1.00f;
     static float SPEED_FACTOR_MAX = 0.6f;
     static float ACCELERATION = 0.01f; // How fast the car will speed up/down
-    PlayerInput _input;
     Rigidbody2D _rb;
 
     float _speedFactor = SPEED_FACTOR_MIN;
@@ -17,21 +14,15 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 5;
     public float turnSpeed = 5;
 
-    public event Action OnPlayerCollision;
-
     void Start()
     {
-        _input = new PlayerInput();
-
-        _input.Player.Enable();
-
         _rb = GetComponent<Rigidbody2D>();
     }
 
 
     void OnDestroy()
     {
-        _input.Player.Disable();
+
     }
 
     void FixedUpdate()
@@ -40,22 +31,22 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad)).normalized * movementSpeed * 100 * Time.deltaTime;
         _rb.velocity *= _speedFactor;
 
-        if (_input.Player.Brake.IsPressed())
-        {
-            if (_speedFactor >= SPEED_FACTOR_MAX)
-                _speedFactor -= ACCELERATION;
-        }
-        else if (_input.Player.Reverse.IsPressed())
-        {
-            if (_speedFactor >= -0.5f)
-                _speedFactor -= ACCELERATION;
-        } else
-        {
-            if (_speedFactor <= SPEED_FACTOR_MIN)
-                _speedFactor += ACCELERATION;
-        }
+        // if (false) // brake
+        // {
+        //     if (_speedFactor >= SPEED_FACTOR_MAX)
+        //         _speedFactor -= ACCELERATION;
+        // }
+        // else if (false) // reverse
+        // {
+        //     if (_speedFactor >= -0.5f)
+        //         _speedFactor -= ACCELERATION;
+        // } else
+        // {
+        //     if (_speedFactor <= SPEED_FACTOR_MIN)
+        //         _speedFactor += ACCELERATION;
+        // }
 
-        transform.Rotate(new Vector3(0, 0, _input.Player.Turn.ReadValue<float>() * turnSpeed * 100 * Time.deltaTime));
+        // transform.Rotate(new Vector3(0, 0, _input.Player.Turn.ReadValue<float>() * turnSpeed * 100 * Time.deltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -64,8 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             if (_speedFactor >= 0.85f)
             {
-                _input.Player.Disable();
-                OnPlayerCollision.Invoke();
             }
         }
         else if (collision.collider.gameObject.tag == "Coin")

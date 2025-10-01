@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reverse"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d5826f1-dd42-4ced-9c20-a9fccb76fd01"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Turn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81b70f10-68e1-4736-b2fc-6441967c8fc6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee1fb47d-19b4-4bda-9a5f-bc55c8c52209"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +164,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
         m_Player_Turn = m_Player.FindAction("Turn", throwIfNotFound: true);
+        m_Player_Reverse = m_Player.FindAction("Reverse", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -201,12 +233,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Brake;
     private readonly InputAction m_Player_Turn;
+    private readonly InputAction m_Player_Reverse;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Brake => m_Wrapper.m_Player_Brake;
         public InputAction @Turn => m_Wrapper.m_Player_Turn;
+        public InputAction @Reverse => m_Wrapper.m_Player_Reverse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -222,6 +256,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Turn.started += instance.OnTurn;
             @Turn.performed += instance.OnTurn;
             @Turn.canceled += instance.OnTurn;
+            @Reverse.started += instance.OnReverse;
+            @Reverse.performed += instance.OnReverse;
+            @Reverse.canceled += instance.OnReverse;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -232,6 +269,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Turn.started -= instance.OnTurn;
             @Turn.performed -= instance.OnTurn;
             @Turn.canceled -= instance.OnTurn;
+            @Reverse.started -= instance.OnReverse;
+            @Reverse.performed -= instance.OnReverse;
+            @Reverse.canceled -= instance.OnReverse;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -253,5 +293,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnBrake(InputAction.CallbackContext context);
         void OnTurn(InputAction.CallbackContext context);
+        void OnReverse(InputAction.CallbackContext context);
     }
 }

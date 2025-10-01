@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Reverse",
+                    "type": "Button",
+                    "id": "0d5826f1-dd42-4ced-9c20-a9fccb76fd01",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -101,6 +110,28 @@
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "81b70f10-68e1-4736-b2fc-6441967c8fc6",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee1fb47d-19b4-4bda-9a5f-bc55c8c52209",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
