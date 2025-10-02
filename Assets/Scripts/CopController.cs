@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CopController : MonoBehaviour
 {
-    static float SPEED_FACTOR_MIN = 1.00f;
-    static float SPEED_FACTOR_MAX = 0.6f;
-    static float ACCELERATION = 0.01f; // How fast the car will speed up/down
+    public float movementSpeed = 7;
+    public float turnSpeed = 1;
+    public float speedFactorMin = 1.00f;
+    public float speedFactorMax = 0.45f;
+    public float acceleration = 0.02f; // How fast the car will speed up/down. Expressed as a percentage of the total movementSpeed.
     Rigidbody2D _rb;
 
-    float _speedFactor = SPEED_FACTOR_MIN;
+    float _speedFactor;
 
-    public float movementSpeed = 5;
-    public float turnSpeed = 5;
+    public Transform target;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        _speedFactor = speedFactorMin;
     }
 
 
@@ -28,25 +32,59 @@ public class CopController : MonoBehaviour
     void FixedUpdate()
     {
         float zEuler = transform.localRotation.eulerAngles.z + 90;
-        _rb.velocity = new Vector2(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad)).normalized * movementSpeed * 100 * Time.deltaTime;
-        _rb.velocity *= _speedFactor;
+        Vector3 forwardVector = new Vector3(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad), 0).normalized;
+        Vector3 targetVector = (target.position - transform.position).normalized;
 
-        // if (false) // brake
-        // {
-        //     if (_speedFactor >= SPEED_FACTOR_MAX)
-        //         _speedFactor -= ACCELERATION;
-        // }
+
+        // DRAW RAYCAST VECTORS
+        // Facing Vector
+        Debug.DrawLine(transform.position, transform.position + forwardVector * 5, Color.red);
+
+        // Target Vector
+        if (transform != null)
+            Debug.DrawLine(transform.position, transform.position + targetVector * 5, Color.yellow);
+
+
         // else if (false) // reverse
         // {
         //     if (_speedFactor >= -0.5f)
         //         _speedFactor -= ACCELERATION;
-        // } else
-        // {
-        //     if (_speedFactor <= SPEED_FACTOR_MIN)
-        //         _speedFactor += ACCELERATION;
-        // }
 
-        // transform.Rotate(new Vector3(0, 0, _input.Player.Turn.ReadValue<float>() * turnSpeed * 100 * Time.deltaTime));
+
+        // TURN TOWARDS VECTOR
+        float angle = Vector3.SignedAngle(targetVector, forwardVector, Vector3.forward);
+
+        float direction;
+        if (angle < -20)
+        {
+            direction = 1;
+        }
+        else if (angle >= -20 && angle <= 20)
+        {
+            direction = 0;
+        }
+        else
+        {
+            direction = -1;
+        }
+
+        // SLOW DOWN
+        // If player is behind the cop, slow down to lessen turning radius
+        if (Mathf.Abs(angle) > 100)
+        {
+            if (_speedFactor >= speedFactorMax) _speedFactor -= acceleration;
+        }
+        else
+        {
+            if (_speedFactor <= speedFactorMin) _speedFactor += acceleration;
+        }
+
+        // FORWARD MOVEMENT
+        _rb.velocity = forwardVector * movementSpeed * 100 * Time.deltaTime;
+        _rb.velocity *= _speedFactor;
+
+        // TURNING
+        transform.Rotate(new Vector3(0, 0, direction * turnSpeed * 100 * Time.deltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -59,7 +97,7 @@ public class CopController : MonoBehaviour
         }
         else if (collision.collider.gameObject.tag == "Coin")
         {
-            movementSpeed += 1;
+            // movementSpeed += 1;
         }
     }
 }

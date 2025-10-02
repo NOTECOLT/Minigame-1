@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _focus: {fileID: 0}
   _speed: 5
-  followRotation: 1
+  followRotation: 0
   _rotationSpeed: 1.5
 --- !u!1 &527042730
 GameObject:
@@ -2056,6 +2056,8 @@ MonoBehaviour:
   score: 0
   _envTransform: {fileID: 1027567838}
   _playerPrefab: {fileID: 4448169068377549322, guid: af1cee24c3bb00349a3c1d35fc1dc607, type: 3}
+  _copPrefab: {fileID: 6716710071055560375, guid: a60040d3f0ae9164ba083b7e45b2cf94, type: 3}
+  _copSpawn: {fileID: 5337345433335193656}
   _coinPrefab: {fileID: 8811863784817783368, guid: e62fca84cd2fe0e4698ec1a55bcf56d7, type: 3}
 --- !u!114 &1608681693
 MonoBehaviour:
@@ -2237,6 +2239,37 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0050049, y: 0}
   m_SizeDelta: {x: 1280, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &3506046046466506966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337345433335193656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.54, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.6055, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5337345433335193656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3506046046466506966}
+  m_Layer: 0
+  m_Name: Cop Spawn
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2246,3 +2279,4 @@ SceneRoots:
   - {fileID: 1608681691}
   - {fileID: 1235301948}
   - {fileID: 107562541}
+  - {fileID: 3506046046466506966}

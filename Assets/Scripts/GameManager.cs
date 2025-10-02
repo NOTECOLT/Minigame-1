@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,11 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform _envTransform;
 
     [SerializeField] GameObject _playerPrefab;
+    [SerializeField] GameObject _copPrefab;
+    [SerializeField] GameObject _copSpawn;
     [SerializeField] GameObject _coinPrefab;
 
     UIManager _ui;
 
     GameObject _player;
+    List<GameObject> _cops = new List<GameObject>();
     GameObject _currentCoin;
 
     public event Action<GameObject> OnNewGame;
@@ -50,6 +54,26 @@ public class GameManager : MonoBehaviour
         OnNewGame.Invoke(_player);
         _ui.DisableGameOverScreen();
         _ui.UpdateScore(score);
+
+        DestroyAllCops();
+        SpawnCop();
+    }
+
+    void DestroyAllCops()
+    {
+        foreach (GameObject cop in _cops)
+        {
+            Destroy(cop);
+        }
+        _cops = new List<GameObject>();
+    }
+
+    void SpawnCop()
+    {
+        GameObject cop = Instantiate(_copPrefab);
+        cop.transform.position = _copSpawn.transform.position;
+        cop.GetComponent<CopController>().target = _player.transform;
+        _cops.Add(cop);
     }
 
     /// <summary>
@@ -71,6 +95,7 @@ public class GameManager : MonoBehaviour
         score += 1;
         _ui.UpdateScore(score);
         SpawnCoin();
+        SpawnCop();
     }
 
     void OnPlayerCollision()
