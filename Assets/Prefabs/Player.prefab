@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   turnSpeed: 1
+  speedFactorMax: 1
+  speedFactorMin: 0.6
+  acceleration: 0.01
 --- !u!50 &6350772807986788379
 Rigidbody2D:
   serializedVersion: 4

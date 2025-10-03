@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 7;
     public float turnSpeed = 1;
-    public float speedFactorMin = 1.00f;
-    public float speedFactorMax = 0.6f;
+    public float speedFactorMax = 1.00f;
+    public float speedFactorMin = 0.6f;
     public float acceleration = 0.01f; // How fast the car will speed up/down. Expressed as a percentage of the total movementSpeed. 
     PlayerInput _input;
     Rigidbody2D _rb;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         
-        _speedFactor = speedFactorMin;
+        _speedFactor = speedFactorMax;
     }
 
 
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if (_input.Player.Brake.IsPressed())
         {
-            if (_speedFactor >= speedFactorMax)
+            if (_speedFactor >= speedFactorMin)
                 _speedFactor -= acceleration;
         }
         else if (_input.Player.Reverse.IsPressed())
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 _speedFactor -= acceleration;
         } else
         {
-            if (_speedFactor <= speedFactorMin)
+            if (_speedFactor <= speedFactorMax)
                 _speedFactor += acceleration;
         }
     

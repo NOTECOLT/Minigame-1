@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
         {
             OnCoinCollect.Invoke();
         }
-        else
+        else if (collision.collider.gameObject.tag == "Wall")
         {
             RandomizeSpawn();
         }

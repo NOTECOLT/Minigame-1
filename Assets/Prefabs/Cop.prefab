@@ -173,7 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   turnSpeed: 1
-  speedFactorMin: 1
-  speedFactorMax: 0.45
+  speedFactorMax: 1
+  speedFactorMin: 0.45
   acceleration: 0.03
+  speedFactor: 0
   target: {fileID: 0}
