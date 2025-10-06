@@ -62,7 +62,7 @@ class AvoidObstacle : CopState
         }
         else
         {
-            if (cc.speedFactor <= cc.speedFactorMax) cc.speedFactor += cc.acceleration;
+            if (cc.speedFactor <= cc.speedFactorMax) cc.speedFactor += cc.reverseAcceleration;
         }
 
         // FORWARD MOVEMENT
@@ -85,7 +85,8 @@ class AvoidObstacle : CopState
         float zEuler = transform.localRotation.eulerAngles.z + 90;
         Vector3 forwardVector = new Vector3(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad), 0).normalized;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position+forwardVector*2, forwardVector, 4);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position+forwardVector, forwardVector, 5);
+        Debug.DrawLine(transform.position+forwardVector, transform.position+forwardVector*5, Color.green);
     
         // Determine next state
         if (hit)

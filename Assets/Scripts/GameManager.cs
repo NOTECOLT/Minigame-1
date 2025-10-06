@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public int score;
-    
+
     [SerializeField] Transform _envTransform;
 
     [SerializeField] GameObject _playerPrefab;
     [SerializeField] GameObject _copPrefab;
-    [SerializeField] GameObject _copSpawn;
+    [SerializeField] List<Transform> _copSpawnpoints;
     [SerializeField] GameObject _coinPrefab;
 
     UIManager _ui;
@@ -71,7 +72,10 @@ public class GameManager : MonoBehaviour
     void SpawnCop()
     {
         GameObject cop = Instantiate(_copPrefab);
-        cop.transform.position = _copSpawn.transform.position;
+
+        Transform spawnpoint = _copSpawnpoints[UnityEngine.Random.Range(0, _copSpawnpoints.Count)];
+
+        cop.transform.position = spawnpoint.position;
         cop.GetComponent<CopController>().target = _player.transform;
         _cops.Add(cop);
     }

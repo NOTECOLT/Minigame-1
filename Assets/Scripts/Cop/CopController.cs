@@ -16,6 +16,7 @@ public class CopController : MonoBehaviour
     public float speedFactorMax = 1.00f;
     public float speedFactorMin = 0.45f;
     public float acceleration = 0.02f; // How fast the car will speed up/down. Expressed as a percentage of the total movementSpeed.
+    public float reverseAcceleration = 0.05f; // only used when backing up in the avoid obstacles state
 
     CopState _state;
     public float speedFactor;
