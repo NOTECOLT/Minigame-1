@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  turnSpeed: 1
+  turnSpeed: 0.8
   speedFactorMax: 1
   speedFactorMin: 0.6
   acceleration: 0.01
