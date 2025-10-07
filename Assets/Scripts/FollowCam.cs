@@ -14,7 +14,7 @@ public class FollowCam : MonoBehaviour
     GameManager _gm;
     void Start()
     {
-        _gm = FindObjectOfType<GameManager>();
+        _gm = FindFirstObjectByType<GameManager>();
         _gm.OnNewGame += SetFocus;
     }
 

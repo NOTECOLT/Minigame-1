@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     GameManager _gm;
     void Start()
     {
-        _gm = FindObjectOfType<GameManager>();
+        _gm = FindFirstObjectByType<GameManager>();
     }
 
     void OnDestroy()

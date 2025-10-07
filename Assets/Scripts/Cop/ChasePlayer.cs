@@ -59,8 +59,8 @@ public class ChasePlayer : CopState
         }
 
         // FORWARD MOVEMENT
-        _rb.velocity = forwardVector * cc.movementSpeed * 100 * Time.deltaTime;
-        _rb.velocity *= cc.speedFactor;
+        _rb.linearVelocity = forwardVector * cc.movementSpeed * 100 * Time.deltaTime;
+        _rb.linearVelocity *= cc.speedFactor;
 
         // TURNING
         transform.Rotate(new Vector3(0, 0, direction * cc.turnSpeed * 100 * Time.deltaTime));

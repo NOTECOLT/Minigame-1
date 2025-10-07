@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
                 _speedFactor += acceleration;
         }
     
-        _rb.velocity = new Vector2(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad)).normalized * movementSpeed * 100 * Time.deltaTime;
-        _rb.velocity *= _speedFactor;
+        _rb.linearVelocity = new Vector2(Mathf.Cos(zEuler * Mathf.Deg2Rad), Mathf.Sin(zEuler * Mathf.Deg2Rad)).normalized * movementSpeed * 100 * Time.deltaTime;
+        _rb.linearVelocity *= _speedFactor;
 
         transform.Rotate(new Vector3(0, 0, _input.Player.Turn.ReadValue<float>() * turnSpeed * 100 * Time.deltaTime));
     }
