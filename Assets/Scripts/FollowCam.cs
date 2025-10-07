@@ -28,7 +28,7 @@ public class FollowCam : MonoBehaviour
         _focus = player.transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (_focus == null) return;
 
