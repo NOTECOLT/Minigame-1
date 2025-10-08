@@ -105,6 +105,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3f7539fd8f1d14386a603a7aad205a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 0
+  up: {fileID: 1561580212332825228, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  leftUp: {fileID: -2164150178218798039, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  left: {fileID: -6022654856011055332, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  leftDown: {fileID: -8868172532995856297, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  down: {fileID: -468335518, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  rightDown: {fileID: 915982693, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  right: {fileID: 1635431604, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
+  rightUp: {fileID: 1536636271, guid: 7b22959655ae4774c8ac4ccc58e2bca4, type: 3}
   movementSpeed: 5
   turnSpeed: 0.8
   speedFactorMax: 1
@@ -175,7 +184,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.625}
+    oldSize: {x: 1.625, y: 1.625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

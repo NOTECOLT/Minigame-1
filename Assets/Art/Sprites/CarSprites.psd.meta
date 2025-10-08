@@ -113,8 +113,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 102
-        width: 16
+        y: 104
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -134,9 +134,9 @@ TextureImporter:
       name: CarSprites_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 102
-        width: 16
+        x: 26
+        y: 104
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,9 +156,9 @@ TextureImporter:
       name: CarSprites_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 102
-        width: 16
+        x: 52
+        y: 104
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -178,9 +178,9 @@ TextureImporter:
       name: CarSprites_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 102
-        width: 16
+        x: 78
+        y: 104
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -200,9 +200,9 @@ TextureImporter:
       name: CarSprites_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 76
-        width: 16
+        x: 104
+        y: 104
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -222,9 +222,9 @@ TextureImporter:
       name: CarSprites_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 76
-        width: 16
+        x: 26
+        y: 78
+        width: 26
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -236,6 +236,160 @@ TextureImporter:
       bones: []
       spriteID: 68c0ef9837657f548bada6ec2c8381f3
       internalID: 1536636271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_6
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 78
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7020913df1607ca4888b016d8f9ecb4c
+      internalID: 1635431604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_7
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 78
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4300b9a3f638d4eb674e3779ef9c2f
+      internalID: 915982693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_8
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 26
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dc52e4eb8726b4a9709d3fc2cb3531
+      internalID: -1903313985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_9
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 26
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e8bafc8e8aa1b4c89b37fff14a466d
+      internalID: -2127261180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 26
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c0fa604071a4a4da1ba78ef08dfbd3
+      internalID: -488979722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_11
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ca3c27c52028c4db4ce534bfaaff87
+      internalID: 1338502455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarSprites_12
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71db83b38ff960f429ef504f2edaff63
+      internalID: 981185411
       vertices: []
       indices: 
       edges: []
@@ -254,14 +408,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":26.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":26.0,"y":26.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       CarSprites_0: 1561580212332825228
       CarSprites_1: -2164150178218798039
+      CarSprites_10: -488979722
+      CarSprites_11: 1338502455
+      CarSprites_12: 981185411
       CarSprites_2: -6022654856011055332
       CarSprites_3: -8868172532995856297
       CarSprites_4: -468335518
       CarSprites_5: 1536636271
+      CarSprites_6: 1635431604
+      CarSprites_7: 915982693
+      CarSprites_8: -1903313985
+      CarSprites_9: -2127261180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
